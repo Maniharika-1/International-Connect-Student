@@ -29,5 +29,31 @@ public class StudentDataSourceImpl implements StudentDataSource {
         });
     }
 
+    @Override
+    public void getAllStudents(DatabaseReference studentNode, GetDataListener getDataListener) {
+
+        getDataListener.onStart();
+        studentNode.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                if (snapshot.exists()) {
+                    getDataListener.onSuccess(snapshot);
+                } else {
+                    Log.d("StudentDataSourceImpl", "onDataChange: ");
+                    getDataListener.onFailure();
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.d("StudentDataSourceImpl", "onCancelled: " + error.getMessage());
+                getDataListener.onFailure();
+            }
+        });
+
+    }
+
 
 }
