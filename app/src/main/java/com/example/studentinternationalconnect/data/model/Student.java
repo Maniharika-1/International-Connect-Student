@@ -11,17 +11,24 @@ public class Student {
     String password;
     String userName;
     String token;
+    String email;
+    String ANo;
 
-    public Student(String firstName, String lastName, String address, String highestQualification, String GPA, String IELTSScore, String password, String userName, String token) {
+    public Student() {
+    }
+
+    public Student(String firstName, String lastName, String email, String password, String userName, String address, String highestQualification, String GPA, String IELTSScore, String token, String ANo) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+        this.userName = userName;
         this.address = address;
         this.highestQualification = highestQualification;
         this.GPA = GPA;
         this.IELTSScore = IELTSScore;
-        this.password = password;
-        this.userName = userName;
         this.token = token;
+        this.ANo = ANo;
     }
 
     public String getFirstName() {
@@ -95,4 +102,21 @@ public class Student {
     public void setToken(String token) {
         this.token = token;
     }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getANo() {
+        return ANo;
+    }
+
+    public void setANo(String ANo) {
+        this.ANo = ANo;
+    }
+
 }
