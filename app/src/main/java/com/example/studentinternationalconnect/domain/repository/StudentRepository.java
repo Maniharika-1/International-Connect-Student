@@ -8,5 +8,5 @@ import com.google.firebase.database.DatabaseReference;
 public interface StudentRepository {
 
     void saveStudentInfo(Student student, DatabaseReference studentNode, OnCompleteListener onCompleteListener);
-
+    void getAllStudents(DatabaseReference studentNode, GetDataListener getDataListener);
 }

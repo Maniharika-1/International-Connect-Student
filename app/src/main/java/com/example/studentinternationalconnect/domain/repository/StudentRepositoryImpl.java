@@ -19,4 +19,8 @@ public class StudentRepositoryImpl implements StudentRepository{
         studentDataSource.saveStudentInfo(student, studentNode, onCompleteListener);
     }
 
+    @Override
+    public void getAllStudents(DatabaseReference studentNode, GetDataListener getDataListener) {
+        studentDataSource.getAllStudents(studentNode, getDataListener);
+    }
 }
