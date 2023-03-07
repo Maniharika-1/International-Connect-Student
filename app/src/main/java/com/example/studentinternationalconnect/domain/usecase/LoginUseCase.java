@@ -6,12 +6,12 @@ import com.google.firebase.database.DatabaseReference;
 
 public class LoginUseCase {
 
-    StudentRepository studentRepository;
+    StudentRepository mStudentRepository;
     public LoginUseCase(StudentRepository studentRepository) {
-        this.studentRepository = studentRepository;
+        mStudentRepository = studentRepository;
     }
 
     public void execute(DatabaseReference studentNode, GetDataListener getDataListener) {
-        studentRepository.getAllStudents(studentNode, getDataListener);
+        mStudentRepository.getAllStudents(studentNode, getDataListener);
     }
 }

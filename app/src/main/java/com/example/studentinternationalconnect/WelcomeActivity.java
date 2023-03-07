@@ -14,7 +14,7 @@ import com.example.studentinternationalconnect.databinding.ActivityWelcomeBindin
 
 public class WelcomeActivity extends AppCompatActivity {
 
-    private ActivityWelcomeBinding activityWelcomeBinding;
+    private ActivityWelcomeBinding mActivityWelcomeBinding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,10 +23,10 @@ public class WelcomeActivity extends AppCompatActivity {
         hideActionBar();
         hideNavigationButtons();
 
-        activityWelcomeBinding = ActivityWelcomeBinding.inflate(getLayoutInflater());
-        setContentView(activityWelcomeBinding.getRoot());
+        mActivityWelcomeBinding = ActivityWelcomeBinding.inflate(getLayoutInflater());
+        setContentView(mActivityWelcomeBinding.getRoot());
 
-        SharedPreferences sharedPreferences = StudentBaseClass.sharedPreferences;
+        SharedPreferences sharedPreferences = StudentBaseClass.mSharedPreferences;
 
         final View content = findViewById(android.R.id.content);
         content.getViewTreeObserver().addOnPreDrawListener(
@@ -47,14 +47,14 @@ public class WelcomeActivity extends AppCompatActivity {
                     }
                 });
 
-        activityWelcomeBinding.loginButton.setOnClickListener(new View.OnClickListener() {
+        mActivityWelcomeBinding.loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 callLoginActivity();
             }
         });
 
-        activityWelcomeBinding.signupButton.setOnClickListener(new View.OnClickListener() {
+        mActivityWelcomeBinding.signupButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 callSignUpActivity();

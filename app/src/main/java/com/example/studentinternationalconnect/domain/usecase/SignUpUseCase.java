@@ -7,12 +7,12 @@ import com.google.firebase.database.DatabaseReference;
 
 public class SignUpUseCase {
 
-    StudentRepository studentRepository;
+    StudentRepository mStudentRepository;
     public SignUpUseCase(StudentRepository studentRepository) {
-        this.studentRepository = studentRepository;
+        mStudentRepository = studentRepository;
     }
 
     public void execute(Student student, DatabaseReference studentNode, OnCompleteListener onCompleteListener) {
-        studentRepository.saveStudentInfo(student, studentNode, onCompleteListener);
+        mStudentRepository.saveStudentInfo(student, studentNode, onCompleteListener);
     }
 }

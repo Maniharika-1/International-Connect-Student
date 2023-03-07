@@ -54,7 +54,7 @@
                 android:layout_marginStart="32dp"
                 android:layout_marginEnd="32dp"
                 android:ems="10"
-                android:text="@{loginViewModel.errorMessage}"
+                android:text="@{loginViewModel.mErrorMessage}"
                 android:paddingStart="3dp"
                 android:textColor="@color/red"
                 android:textSize="15sp" />

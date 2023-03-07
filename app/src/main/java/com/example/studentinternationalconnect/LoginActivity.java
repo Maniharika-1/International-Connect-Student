@@ -18,9 +18,9 @@ import com.example.studentinternationalconnect.presentation.viewmodel.LoginViewM
 
 public class LoginActivity extends AppCompatActivity {
 
-    ActivityLoginBinding activityLoginBinding;
-    LoginViewModel loginViewModel;
-    LoginViewModelFactory loginViewModelFactory;
+    ActivityLoginBinding mActivityLoginBinding;
+    LoginViewModel mLoginViewModel;
+    LoginViewModelFactory mLoginViewModelFactory;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,22 +29,22 @@ public class LoginActivity extends AppCompatActivity {
         hideActionBar();
         hideNavigationButtons();
 
-        activityLoginBinding = ActivityLoginBinding.inflate(getLayoutInflater());
-        setContentView(activityLoginBinding.getRoot());
+        mActivityLoginBinding = ActivityLoginBinding.inflate(getLayoutInflater());
+        setContentView(mActivityLoginBinding.getRoot());
 
-        loginViewModelFactory = new LoginViewModelFactory(getApplication(), new LoginUseCase(new StudentRepositoryImpl(new StudentDataSourceImpl())));
+        mLoginViewModelFactory = new LoginViewModelFactory(getApplication(), new LoginUseCase(new StudentRepositoryImpl(new StudentDataSourceImpl())));
 
-        loginViewModel = new ViewModelProvider(this, loginViewModelFactory).get(LoginViewModel.class);
+        mLoginViewModel = new ViewModelProvider(this, mLoginViewModelFactory).get(LoginViewModel.class);
 
-        activityLoginBinding.setLoginViewModel(loginViewModel);
-        activityLoginBinding.setLifecycleOwner(this);
+        mActivityLoginBinding.setLoginViewModel(mLoginViewModel);
+        mActivityLoginBinding.setLifecycleOwner(this);
 
-        activityLoginBinding.loginBtn.setOnClickListener(view -> loginViewModel.login(
-                activityLoginBinding.userNameET.getText().toString(),
-                activityLoginBinding.passwordET.getText().toString())
+        mActivityLoginBinding.loginBtn.setOnClickListener(view -> mLoginViewModel.login(
+                mActivityLoginBinding.userNameET.getText().toString(),
+                mActivityLoginBinding.passwordET.getText().toString())
         );
 
-        activityLoginBinding.signUpTV.setOnClickListener(new View.OnClickListener() {
+        mActivityLoginBinding.signUpTV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -53,7 +53,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        loginViewModel.loginSuccessful.observe(this, aBoolean -> {
+        mLoginViewModel.mLoginSuccessful.observe(this, aBoolean -> {
 
             if (aBoolean)
                 callHomeActivity();

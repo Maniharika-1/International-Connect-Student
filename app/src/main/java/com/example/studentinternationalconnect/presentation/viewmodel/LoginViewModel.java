@@ -17,31 +17,31 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class LoginViewModel extends AndroidViewModel {
 
-    private DatabaseReference studentNode;
-    LoginUseCase loginUseCase;
-    public MutableLiveData<Boolean> loginSuccessful;
-    public MutableLiveData<String> errorMessage;
+    private DatabaseReference mStudentNode;
+    LoginUseCase mLoginUseCase;
+    public MutableLiveData<Boolean> mLoginSuccessful;
+    public MutableLiveData<String> mErrorMessage;
     final String TAG = "LoginViewModel";
-    SharedPreferences sharedPreferences;
+    SharedPreferences mSharedPreferences;
 
     public LoginViewModel(@NonNull Application application, LoginUseCase loginUseCase) {
 
         super(application);
-        this.loginUseCase = loginUseCase;
+        mLoginUseCase = loginUseCase;
 
-        studentNode = FirebaseDatabase.getInstance().getReference().child("Students");
-        errorMessage = new MutableLiveData<>();
-        loginSuccessful = new MutableLiveData<>();
-        errorMessage.setValue(null);
-        loginSuccessful.setValue(false);
+        mStudentNode = FirebaseDatabase.getInstance().getReference().child("Students");
+        mErrorMessage = new MutableLiveData<>();
+        mLoginSuccessful = new MutableLiveData<>();
+        mErrorMessage.setValue(null);
+        mLoginSuccessful.setValue(false);
 
-        sharedPreferences = StudentBaseClass.sharedPreferences;
+        mSharedPreferences = StudentBaseClass.mSharedPreferences;
 
     }
 
     public void login(String userName, String password) {
 
-        loginUseCase.execute(studentNode, new GetDataListener() {
+        mLoginUseCase.execute(mStudentNode, new GetDataListener() {
             @Override
             public void onSuccess(DataSnapshot dataSnapshot) {
 
@@ -53,26 +53,26 @@ public class LoginViewModel extends AndroidViewModel {
 
                             Student student = snapshot.getValue(Student.class);
 
-                            if (student != null && student.getUserName() != null && student.getUserName().contentEquals(userName) &&
-                            student.getPassword() != null && student.getPassword().contentEquals(password)) {
+                            if (student != null && student.getmUserName() != null && student.getmUserName().contentEquals(userName) &&
+                            student.getmPassword() != null && student.getmPassword().contentEquals(password)) {
 
-                                loginSuccessful.setValue(true);
-                                errorMessage.setValue(null);
-                                sharedPreferences.edit().putBoolean("LoggedIn", true).apply();
+                                mLoginSuccessful.setValue(true);
+                                mErrorMessage.setValue(null);
+                                mSharedPreferences.edit().putBoolean("LoggedIn", true).apply();
 
                             } else {
 
-                                loginSuccessful.setValue(false);
-                                errorMessage.setValue("User not found. Please sign up!");
-                                sharedPreferences.edit().putBoolean("LoggedIn", false).apply();
+                                mLoginSuccessful.setValue(false);
+                                mErrorMessage.setValue("User not found. Please sign up!");
+                                mSharedPreferences.edit().putBoolean("LoggedIn", false).apply();
 
                             }
 
                         } else {
 
-                            loginSuccessful.setValue(false);
-                            errorMessage.setValue("User not found. Please sign up!");
-                            sharedPreferences.edit().putBoolean("LoggedIn", false).apply();
+                            mLoginSuccessful.setValue(false);
+                            mErrorMessage.setValue("User not found. Please sign up!");
+                            mSharedPreferences.edit().putBoolean("LoggedIn", false).apply();
 
                         }
                     }
@@ -87,9 +87,9 @@ public class LoginViewModel extends AndroidViewModel {
             @Override
             public void onFailure() {
 
-                loginSuccessful.setValue(false);
-                errorMessage.setValue("Couldn't sign up!");
-                sharedPreferences.edit().putBoolean("LoggedIn", false).apply();
+                mLoginSuccessful.setValue(false);
+                mErrorMessage.setValue("Couldn't sign up!");
+                mSharedPreferences.edit().putBoolean("LoggedIn", false).apply();
 
             }
         });
