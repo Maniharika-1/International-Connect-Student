@@ -4,11 +4,8 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewTreeObserver;
 import android.view.Window;
 import android.view.WindowManager;
 
@@ -22,13 +19,13 @@ import com.example.studentinternationalconnect.presentation.viewmodel.SignUpView
 
 public class SignUpActivity extends AppCompatActivity {
 
-    ActivitySignupBinding activitySignupBinding;
-    SignUpViewModel signUpViewModel;
-    SignUpViewModelFactory signUpViewModelFactory;
-    String userName;
-    String email;
-    String password;
-    String confirmPassword;
+    ActivitySignupBinding mActivitySignupBinding;
+    SignUpViewModel mSignUpViewModel;
+    SignUpViewModelFactory mSignUpViewModelFactory;
+    String mUserName;
+    String mEmail;
+    String mPassword;
+    String mConfirmPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,28 +34,28 @@ public class SignUpActivity extends AppCompatActivity {
         hideActionBar();
         hideNavigationButtons();
 
-        activitySignupBinding = ActivitySignupBinding.inflate(getLayoutInflater());
-        setContentView(activitySignupBinding.getRoot());
+        mActivitySignupBinding = ActivitySignupBinding.inflate(getLayoutInflater());
+        setContentView(mActivitySignupBinding.getRoot());
 
-        signUpViewModelFactory = new SignUpViewModelFactory(getApplication(),
+        mSignUpViewModelFactory = new SignUpViewModelFactory(getApplication(),
                 new SignUpUseCase(new StudentRepositoryImpl(new StudentDataSourceImpl())));
 
-        signUpViewModel = new ViewModelProvider(this, signUpViewModelFactory).get(SignUpViewModel.class);
+        mSignUpViewModel = new ViewModelProvider(this, mSignUpViewModelFactory).get(SignUpViewModel.class);
 
-        activitySignupBinding.setSignUpViewModel(signUpViewModel);
-        activitySignupBinding.setLifecycleOwner(this);
+        mActivitySignupBinding.setSignUpViewModel(mSignUpViewModel);
+        mActivitySignupBinding.setLifecycleOwner(this);
 
-        activitySignupBinding.signUpBtn.setOnClickListener(view -> {
+        mActivitySignupBinding.signUpBtn.setOnClickListener(view -> {
 
             getInputData();
-            Student student = new Student(null, null, email, password, userName, null, null, null, null, null, null);
-            signUpViewModel.signUp(student, confirmPassword);
+            Student student = new Student(null, null, mEmail, mPassword, mUserName, null, null, null, null, null, null);
+            mSignUpViewModel.signUp(student, mConfirmPassword);
 
         });
 
-        activitySignupBinding.loginTV.setOnClickListener(view -> callLoginIntent());
+        mActivitySignupBinding.loginTV.setOnClickListener(view -> callLoginIntent());
 
-        signUpViewModel.signUpSuccessful.observe(this, aBoolean -> {
+        mSignUpViewModel.mSignUpSuccessful.observe(this, aBoolean -> {
 
             if (aBoolean) {
 
@@ -73,7 +70,7 @@ public class SignUpActivity extends AppCompatActivity {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Sign Up Successful");
-        builder.setMessage("Your ANumber is A" + SignUpViewModel.randomNumber +". Please note this number for login and all your future references.");
+        builder.setMessage("Your ANumber is A" + SignUpViewModel.mRandomNumber +". Please note this number for login and all your future references.");
 
         builder.setPositiveButton("OK", (dialogInterface, i) -> {
 
@@ -89,18 +86,14 @@ public class SignUpActivity extends AppCompatActivity {
 
     private void callLoginIntent() {
 
-        Intent intent = new Intent(this, LoginActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(intent);
-
     }
 
     private void getInputData() {
 
-        userName = activitySignupBinding.userNameET.getText().toString();
-        email = activitySignupBinding.emailET.getText().toString();
-        password = activitySignupBinding.passwordET.getText().toString();
-        confirmPassword = activitySignupBinding.repasswordET.getText().toString();
+        mUserName = mActivitySignupBinding.userNameET.getText().toString();
+        mEmail = mActivitySignupBinding.emailET.getText().toString();
+        mPassword = mActivitySignupBinding.passwordET.getText().toString();
+        mConfirmPassword = mActivitySignupBinding.repasswordET.getText().toString();
 
     }
 

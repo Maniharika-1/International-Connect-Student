@@ -1,12 +1,10 @@
 package com.example.studentinternationalconnect.presentation.viewmodel;
 
 import android.app.Application;
-import android.content.SharedPreferences;
 
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 
-import com.example.studentinternationalconnect.StudentBaseClass;
 import com.example.studentinternationalconnect.data.model.Student;
 import com.example.studentinternationalconnect.domain.usecase.SignUpUseCase;
 import com.example.studentinternationalconnect.domain.util.OnCompleteListener;
@@ -17,45 +15,45 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class SignUpViewModel extends AndroidViewModel {
 
-    private DatabaseReference studentNode;
-    SignUpUseCase signUpUseCase;
-    public MutableLiveData<Boolean> signUpSuccessful;
-    public MutableLiveData<String> errorMessage;
+    private DatabaseReference mStudentNode;
+    SignUpUseCase mSignUpUseCase;
+    public MutableLiveData<Boolean> mSignUpSuccessful;
+    public MutableLiveData<String> mErrorMessage;
     final String TAG = "SignUpViewModel";
-    public static int randomNumber;
+    public static int mRandomNumber;
 
     public SignUpViewModel(Application application, SignUpUseCase signUpUseCase) {
         super(application);
-        this.signUpUseCase = signUpUseCase;
+        this.mSignUpUseCase = signUpUseCase;
 
-        studentNode = FirebaseDatabase.getInstance().getReference().child("Students");
-        signUpSuccessful = new MutableLiveData<>();
-        errorMessage = new MutableLiveData<>();
-        signUpSuccessful.setValue(false);
-        errorMessage.setValue(null);
+        mStudentNode = FirebaseDatabase.getInstance().getReference().child("Students");
+        mSignUpSuccessful = new MutableLiveData<>();
+        mErrorMessage = new MutableLiveData<>();
+        mSignUpSuccessful.setValue(false);
+        mErrorMessage.setValue(null);
     }
 
     public void signUp(Student student, String confirmPassword) {
 
-        if (student.getPassword() != null && !student.getPassword().contentEquals(confirmPassword))
-            errorMessage.setValue("Password mismatch. Please enter correct password!");
-        else if (student.getUserName().isEmpty() || student.getEmail().isEmpty()
-                || student.getPassword().isEmpty() || confirmPassword.isEmpty())
-            errorMessage.setValue("One or more fields are empty!");
+        if (student.getmPassword() != null && !student.getmPassword().contentEquals(confirmPassword))
+            mErrorMessage.setValue("Password mismatch. Please enter correct password!");
+        else if (student.getmUserName().isEmpty() || student.getmEmail().isEmpty()
+                || student.getmPassword().isEmpty() || confirmPassword.isEmpty())
+            mErrorMessage.setValue("One or more fields are empty!");
         else {
 
             int min = 00000000;
             int max = 99999999;
-            randomNumber = ThreadLocalRandom.current().nextInt(min, max + 1);
+            mRandomNumber = ThreadLocalRandom.current().nextInt(min, max + 1);
 
-            student.setANo('A' + String.valueOf(randomNumber));
+            student.setmANo('A' + String.valueOf(mRandomNumber));
 
-            signUpUseCase.execute(student, studentNode, new OnCompleteListener() {
+            mSignUpUseCase.execute(student, mStudentNode, new OnCompleteListener() {
                 @Override
                 public void onSuccess() {
 
-                    signUpSuccessful.setValue(true);
-                    errorMessage.setValue(null);
+                    mSignUpSuccessful.setValue(true);
+                    mErrorMessage.setValue(null);
 
                 }
 
@@ -67,8 +65,8 @@ public class SignUpViewModel extends AndroidViewModel {
                 @Override
                 public void onFailure() {
 
-                    signUpSuccessful.setValue(false);
-                    errorMessage.setValue("Failed to sign up!");
+                    mSignUpSuccessful.setValue(false);
+                    mErrorMessage.setValue("Failed to sign up!");
 
                 }
             });

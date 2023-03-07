@@ -10,12 +10,12 @@ import com.example.studentinternationalconnect.domain.usecase.SignUpUseCase;
 
 public class SignUpViewModelFactory implements ViewModelProvider.Factory{
 
-    private SignUpUseCase signUpUseCase;
-    private Application application;
+    private SignUpUseCase mSignUpUseCase;
+    private Application mApplication;
 
     public SignUpViewModelFactory(Application application, SignUpUseCase signUpUseCase) {
-        this.application = application;
-        this.signUpUseCase = signUpUseCase;
+        mApplication = application;
+        mSignUpUseCase = signUpUseCase;
     }
 
     @NonNull
@@ -23,7 +23,7 @@ public class SignUpViewModelFactory implements ViewModelProvider.Factory{
     public <T extends ViewModel> T create(@NonNull Class<T> modelClass) {
 
         if (modelClass.isAssignableFrom(SignUpViewModel.class))
-            return (T) new SignUpViewModel(application, signUpUseCase);
+            return (T) new SignUpViewModel(mApplication, mSignUpUseCase);
 
         return ViewModelProvider.Factory.super.create(modelClass);
     }

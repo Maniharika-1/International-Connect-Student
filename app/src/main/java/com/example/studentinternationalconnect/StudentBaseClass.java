@@ -9,7 +9,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class StudentBaseClass extends Application {
 
-    public static SharedPreferences sharedPreferences;
+    public static SharedPreferences mSharedPreferences;
 
     @Override
     public void onCreate() {
@@ -18,7 +18,7 @@ public class StudentBaseClass extends Application {
         FirebaseApp.initializeApp(this);
         FirebaseDatabase.getInstance().setPersistenceEnabled(true);
 
-        sharedPreferences = getApplicationContext().getSharedPreferences(getApplicationContext().getString(R.string.shared_preferences_name), Context.MODE_PRIVATE);
+        mSharedPreferences = getApplicationContext().getSharedPreferences(getApplicationContext().getString(R.string.shared_preferences_name), Context.MODE_PRIVATE);
 
     }
 }

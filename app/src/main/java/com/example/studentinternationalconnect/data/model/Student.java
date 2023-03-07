@@ -2,121 +2,121 @@ package com.example.studentinternationalconnect.data.model;
 
 public class Student {
 
-    String firstName;
-    String lastName;
-    String address;
-    String highestQualification;
-    String GPA;
-    String IELTSScore;
-    String password;
-    String userName;
-    String token;
-    String email;
-    String ANo;
+    String mFirstName;
+    String mLastName;
+    String mAddress;
+    String mHighestQualification;
+    String mGPA;
+    String mIELTSScore;
+    String mPassword;
+    String mUserName;
+    String mToken;
+    String mEmail;
+    String mANo;
 
     public Student() {
     }
 
     public Student(String firstName, String lastName, String email, String password, String userName, String address, String highestQualification, String GPA, String IELTSScore, String token, String ANo) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.password = password;
-        this.userName = userName;
-        this.address = address;
-        this.highestQualification = highestQualification;
-        this.GPA = GPA;
-        this.IELTSScore = IELTSScore;
-        this.token = token;
-        this.ANo = ANo;
+        mFirstName = firstName;
+        mLastName = lastName;
+        mEmail = email;
+        mPassword = password;
+        mUserName = userName;
+        mAddress = address;
+        mHighestQualification = highestQualification;
+        mGPA = GPA;
+        mIELTSScore = IELTSScore;
+        mToken = token;
+        mANo = ANo;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getmFirstName() {
+        return mFirstName;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setmFirstName(String mFirstName) {
+        this.mFirstName = mFirstName;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getmLastName() {
+        return mLastName;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setmLastName(String mLastName) {
+        this.mLastName = mLastName;
     }
 
-    public String getAddress() {
-        return address;
+    public String getmAddress() {
+        return mAddress;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setmAddress(String mAddress) {
+        this.mAddress = mAddress;
     }
 
-    public String getHighestQualification() {
-        return highestQualification;
+    public String getmHighestQualification() {
+        return mHighestQualification;
     }
 
-    public void setHighestQualification(String highestQualification) {
-        this.highestQualification = highestQualification;
+    public void setmHighestQualification(String mHighestQualification) {
+        this.mHighestQualification = mHighestQualification;
     }
 
-    public String getGPA() {
-        return GPA;
+    public String getmGPA() {
+        return mGPA;
     }
 
-    public void setGPA(String GPA) {
-        this.GPA = GPA;
+    public void setmGPA(String mGPA) {
+        this.mGPA = mGPA;
     }
 
-    public String getIELTSScore() {
-        return IELTSScore;
+    public String getmIELTSScore() {
+        return mIELTSScore;
     }
 
-    public void setIELTSScore(String IELTSScore) {
-        this.IELTSScore = IELTSScore;
+    public void setmIELTSScore(String mIELTSScore) {
+        this.mIELTSScore = mIELTSScore;
     }
 
-    public String getPassword() {
-        return password;
+    public String getmPassword() {
+        return mPassword;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setmPassword(String mPassword) {
+        this.mPassword = mPassword;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getmUserName() {
+        return mUserName;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setmUserName(String mUserName) {
+        this.mUserName = mUserName;
     }
 
-    public String getToken() {
-        return token;
+    public String getmToken() {
+        return mToken;
     }
 
-    public void setToken(String token) {
-        this.token = token;
+    public void setmToken(String mToken) {
+        this.mToken = mToken;
     }
 
-    public String getEmail() {
-        return email;
+    public String getmEmail() {
+        return mEmail;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setmEmail(String mEmail) {
+        this.mEmail = mEmail;
     }
 
-    public String getANo() {
-        return ANo;
+    public String getmANo() {
+        return mANo;
     }
 
-    public void setANo(String ANo) {
-        this.ANo = ANo;
+    public void setmANo(String mANo) {
+        this.mANo = mANo;
     }
 
 }

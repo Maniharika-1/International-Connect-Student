@@ -1,7 +1,6 @@
 package com.example.studentinternationalconnect.domain.repository;
 
 import com.example.studentinternationalconnect.data.model.Student;
-import com.example.studentinternationalconnect.domain.util.GetDataListener;
 import com.example.studentinternationalconnect.domain.util.OnCompleteListener;
 import com.google.firebase.database.DatabaseReference;
 
