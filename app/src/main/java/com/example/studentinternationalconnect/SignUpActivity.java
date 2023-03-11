@@ -71,7 +71,7 @@ public class SignUpActivity extends AppCompatActivity {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Sign Up Successful");
-        builder.setMessage("Your ANumber is A" + SignUpViewModel.mRandomNumber +". Please note this number for login and all your future references.");
+        builder.setMessage("Your ANumber is A" + SignUpViewModel.sRandomNumber +". Please note this number for login and all your future references.");
 
         builder.setPositiveButton("OK", (dialogInterface, i) -> {
 

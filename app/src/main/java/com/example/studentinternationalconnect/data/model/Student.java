@@ -2,121 +2,121 @@ package com.example.studentinternationalconnect.data.model;
 
 public class Student {
 
-    String mFirstName;
-    String mLastName;
-    String mAddress;
-    String mHighestQualification;
-    String mGPA;
-    String mIELTSScore;
-    String mPassword;
-    String mUserName;
-    String mToken;
-    String mEmail;
-    String mANo;
+    String firstName;
+    String lastName;
+    String address;
+    String levelOfEducation;
+    String GPA;
+    String IELTSScore;
+    String password;
+    String userName;
+    String token;
+    String email;
+    String ANo;
 
     public Student() {
     }
 
-    public Student(String firstName, String lastName, String email, String password, String userName, String address, String highestQualification, String GPA, String IELTSScore, String token, String ANo) {
-        mFirstName = firstName;
-        mLastName = lastName;
-        mEmail = email;
-        mPassword = password;
-        mUserName = userName;
-        mAddress = address;
-        mHighestQualification = highestQualification;
-        mGPA = GPA;
-        mIELTSScore = IELTSScore;
-        mToken = token;
-        mANo = ANo;
+    public Student(String firstName, String lastName, String email, String password, String userName, String address, String levelOfEducation, String GPA, String IELTSScore, String token, String ANo) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+        this.userName = userName;
+        this.address = address;
+        this.levelOfEducation = levelOfEducation;
+        this.GPA = GPA;
+        this.IELTSScore = IELTSScore;
+        this.token = token;
+        this.ANo = ANo;
     }
 
-    public String getmFirstName() {
-        return mFirstName;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setmFirstName(String mFirstName) {
-        this.mFirstName = mFirstName;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getmLastName() {
-        return mLastName;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setmLastName(String mLastName) {
-        this.mLastName = mLastName;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public String getmAddress() {
-        return mAddress;
+    public String getAddress() {
+        return address;
     }
 
-    public void setmAddress(String mAddress) {
-        this.mAddress = mAddress;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
-    public String getmHighestQualification() {
-        return mHighestQualification;
+    public String getLevelOfEducation() {
+        return levelOfEducation;
     }
 
-    public void setmHighestQualification(String mHighestQualification) {
-        this.mHighestQualification = mHighestQualification;
+    public void setLevelOfEducation(String levelOfEducation) {
+        this.levelOfEducation = levelOfEducation;
     }
 
-    public String getmGPA() {
-        return mGPA;
+    public String getGPA() {
+        return GPA;
     }
 
-    public void setmGPA(String mGPA) {
-        this.mGPA = mGPA;
+    public void setGPA(String GPA) {
+        this.GPA = GPA;
     }
 
-    public String getmIELTSScore() {
-        return mIELTSScore;
+    public String getIELTSScore() {
+        return IELTSScore;
     }
 
-    public void setmIELTSScore(String mIELTSScore) {
-        this.mIELTSScore = mIELTSScore;
+    public void setIELTSScore(String IELTSScore) {
+        this.IELTSScore = IELTSScore;
     }
 
-    public String getmPassword() {
-        return mPassword;
+    public String getPassword() {
+        return password;
     }
 
-    public void setmPassword(String mPassword) {
-        this.mPassword = mPassword;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public String getmUserName() {
-        return mUserName;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setmUserName(String mUserName) {
-        this.mUserName = mUserName;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
-    public String getmToken() {
-        return mToken;
+    public String getToken() {
+        return token;
     }
 
-    public void setmToken(String mToken) {
-        this.mToken = mToken;
+    public void setToken(String token) {
+        this.token = token;
     }
 
-    public String getmEmail() {
-        return mEmail;
+    public String getEmail() {
+        return email;
     }
 
-    public void setmEmail(String mEmail) {
-        this.mEmail = mEmail;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getmANo() {
-        return mANo;
+    public String getANo() {
+        return ANo;
     }
 
-    public void setmANo(String mANo) {
-        this.mANo = mANo;
+    public void setANo(String ANo) {
+        this.ANo = ANo;
     }
 
 }

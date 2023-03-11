@@ -53,8 +53,8 @@ public class LoginViewModel extends AndroidViewModel {
 
                             Student student = snapshot.getValue(Student.class);
 
-                            if (student != null && student.getmUserName() != null && student.getmUserName().contentEquals(userName) &&
-                            student.getmPassword() != null && student.getmPassword().contentEquals(password)) {
+                            if (student != null && student.getUserName() != null && student.getUserName().contentEquals(userName) &&
+                            student.getPassword() != null && student.getPassword().contentEquals(password)) {
 
                                 mLoginSuccessful.setValue(true);
                                 mErrorMessage.setValue(null);

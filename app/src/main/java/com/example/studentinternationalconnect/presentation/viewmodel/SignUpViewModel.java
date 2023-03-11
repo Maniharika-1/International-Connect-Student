@@ -20,7 +20,7 @@ public class SignUpViewModel extends AndroidViewModel {
     public MutableLiveData<Boolean> mSignUpSuccessful;
     public MutableLiveData<String> mErrorMessage;
     final String TAG = "SignUpViewModel";
-    public static int mRandomNumber;
+    public static int sRandomNumber;
 
     public SignUpViewModel(Application application, SignUpUseCase signUpUseCase) {
         super(application);
@@ -35,18 +35,18 @@ public class SignUpViewModel extends AndroidViewModel {
 
     public void signUp(Student student, String confirmPassword) {
 
-        if (student.getmPassword() != null && !student.getmPassword().contentEquals(confirmPassword))
+        if (student.getPassword() != null && !student.getPassword().contentEquals(confirmPassword))
             mErrorMessage.setValue("Password mismatch. Please enter correct password!");
-        else if (student.getmUserName().isEmpty() || student.getmEmail().isEmpty()
-                || student.getmPassword().isEmpty() || confirmPassword.isEmpty())
+        else if (student.getUserName().isEmpty() || student.getEmail().isEmpty()
+                || student.getPassword().isEmpty() || confirmPassword.isEmpty())
             mErrorMessage.setValue("One or more fields are empty!");
         else {
 
             int min = 00000000;
             int max = 99999999;
-            mRandomNumber = ThreadLocalRandom.current().nextInt(min, max + 1);
+            sRandomNumber = ThreadLocalRandom.current().nextInt(min, max + 1);
 
-            student.setmANo('A' + String.valueOf(mRandomNumber));
+            student.setANo('A' + String.valueOf(sRandomNumber));
 
             mSignUpUseCase.execute(student, mStudentNode, new OnCompleteListener() {
                 @Override
