@@ -1,3 +1,23 @@
 <resources>
-    <string name="app_name">StudentInternationalConnect</string>
+    <string name="app_name">Islander</string>
+    <string name="first_name_sign_up">First Name</string>
+    <string name="last_name_sign_up">Last Name</string>
+    <string name="address_sign_up">Address</string>
+    <string name="gpa_sign_up">GPA</string>
+    <string name="ielts_score_sign_up">IELTS Score</string>
+    <string name="password_sign_up">Password</string>
+    <string name="sign_up_button">Sign Up</string>
+    <string name="signup">SIGNUP</string>
+    <string name="username">Username</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="signup_btn">SignUp</string>
+    <string name="forgot_your_password">Forgot Your Password?</string>
+    <string name="login">LOGIN</string>
+    <string name="login_btn">Login</string>
+    <string name="already_a_user_login">Already a user? Login</string>
+    <string name="create_new_account">Create new account</string>
+    <string name="shared_preferences_name">com.example.admininternationalconnect.studentsp</string>
+    <string name="welcome_nto_nislander_login">Welcome\nto\nIslander Login</string>
 </resources>
